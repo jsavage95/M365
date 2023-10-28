@@ -11,7 +11,7 @@
 Shows all licenses a user has assigned to them.
 #>
 
-function Get-AGUserOfficeLicense
+function Get-UserOfficeLicense
 {
     param (
         [Parameter(Position = 0, Mandatory = $true, ValueFromPipeline = $true)]
@@ -56,17 +56,12 @@ function Get-AGUserOfficeLicense
             'COMPANYNAME:PROJECTPROFESSIONAL' = 'Project Professional'
             'COMPANYNAME:TEAMS_EXPLORATORY' = 'Microsoft Teams Exploratory'
         }
-        
-    
-        
-        
+
     }
     
     Process
     {
-        
-    
-        
+
         $UserPrincipalName = @()
         foreach ($user in $username)
         {
@@ -84,7 +79,7 @@ function Get-AGUserOfficeLicense
         
         
         #Get licenses assigned to mailboxes
-        $User = (Get-MsolUser -UserPrincipalName jordan.savage@autogeneral.com.au)
+        $User = (Get-MsolUser -UserPrincipalName $UserPrincipalName)
         $Licenses = $User.Licenses.AccountSkuId
         $AssignedLicense = ""
         $Count = 0

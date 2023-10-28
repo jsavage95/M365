@@ -14,7 +14,7 @@
 #>
 
 
-Function Get-AGOfficeLicenseCount {
+Function Get-OfficeLicenseCount {
 
     # Connect to Office 365
     try
